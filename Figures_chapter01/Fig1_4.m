@@ -5,6 +5,7 @@ x = linspace(0, 1, 10);
 v = linspace(0, 1, 100);
 sig = 0.2;
 z = sin(2 * pi * x) + normrnd(0, sig, [1, length(x)]);
+yo = sin(2 * pi * v);
 
 vM = [0, 1, 3, 9];
 for i = 1 : length(vM)
@@ -12,7 +13,7 @@ for i = 1 : length(vM)
     M = vM(i);
     p = polyfit(x, z, M);
     y = polyval(p, v);
-    yo = sin(2 * pi * v);
+    
     
     plot(v, yo, 'g-', 'LineWidth', 2); hold on;
     plot(v, y, 'r-', 'LineWidth', 2); hold on;
